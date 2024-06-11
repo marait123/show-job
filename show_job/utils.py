@@ -2,7 +2,7 @@ import logging
 import sys
 
 
-def get_logger(logger_name="tmp", log_level=logging.DEBUG) -> logging.Logger:
+def get_logger(logger_name="tmp", log_level=logging.DEBUG, long_format=True) -> logging.Logger:
     logger = logging.getLogger(logger_name)
 
     # If the logger already has handlers, don't add more
@@ -12,7 +12,7 @@ def get_logger(logger_name="tmp", log_level=logging.DEBUG) -> logging.Logger:
     logger.setLevel(log_level)
 
     formatter = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s" if long_format else "%(message)s",
     )
 
     console_handler = logging.StreamHandler(sys.stdout)

@@ -2,7 +2,7 @@ import sys
 
 from show_job.utils import get_logger
 
-logger = get_logger(__name__)
+logger = get_logger(__name__, long_format=False)
 
 
 def main():
